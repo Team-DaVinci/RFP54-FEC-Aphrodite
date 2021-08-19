@@ -1,6 +1,7 @@
 /* eslint-disable camelcase */
 const axios = require('axios');
 const { GITHUB_KEY, ATELIER_URL } = require('../config');
+const nginxUrl = 'http://3.16.216.76';
 
 // const defaultHeader = {
 //   headers: { Authorization: GITHUB_KEY }
@@ -20,7 +21,8 @@ const { GITHUB_KEY, ATELIER_URL } = require('../config');
 
 module.exports = {
   getProducts: (req, res) => {
-    axios.get(`${ATELIER_URL}/products`, {
+    // axios.get(`${ATELIER_URL}/products`, {
+    axios.get(`${nginxUrl}/products`, {
       headers: { Authorization: GITHUB_KEY },
       page: 2,
     })
@@ -35,7 +37,8 @@ module.exports = {
   },
   getProduct: (req, res) => {
     const { product_id } = req.params;
-    const url = `${ATELIER_URL}/products/${product_id}`;
+    // const url = `${ATELIER_URL}/products/${product_id}`;
+    const url = `${nginxUrl}/products/${product_id}`;
     axios.get(url, {
       headers: { Authorization: GITHUB_KEY },
     })
@@ -50,7 +53,8 @@ module.exports = {
   },
   getStyles: (req, res) => {
     const { product_id } = req.params;
-    const url = `${ATELIER_URL}/products/${product_id}/styles`;
+    // const url = `${ATELIER_URL}/products/${product_id}/styles`;
+    const url = `${nginxUrl}/products/${product_id}/styles`;
     axios.get(url, {
       headers: { Authorization: GITHUB_KEY },
     })
@@ -65,7 +69,8 @@ module.exports = {
   },
   getRelatedProducts: (req, res) => {
     const { product_id } = req.params;
-    const url = `${ATELIER_URL}/products/${product_id}/related`;
+    // const url = `${ATELIER_URL}/products/${product_id}/related`;
+    const url = `${nginxUrl}/products/${product_id}/related`;
     axios.get(url, {
       headers: { Authorization: GITHUB_KEY },
     })

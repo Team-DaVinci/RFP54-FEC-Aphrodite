@@ -11,7 +11,7 @@ function Main() {
   const [photoArray, setPhotoArray] = useState(null);
 
   useEffect(() => {
-    getData('17067');
+    getData('40344');
   }, []);
 
   useEffect(() => {
